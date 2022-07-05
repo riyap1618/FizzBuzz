@@ -27,30 +27,34 @@ def reverse(str):
         result += str[end - 4:end]
     return result
 
+def processNumber(i,multipleOfThree, multipleOfFive,multipleOfSeven,multipleOfEleven,multipleOfThirteen,multipleOfSeventeen):
+    result = ''
+    if multipleOfY(i,3) & (multipleOfThree == 'True'):
+        result += 'Fizz'
+    if multipleOfY(i,13) & (multipleOfThirteen== 'True'):
+        result += 'Fezz'
+    if (multipleOfY(i,5)) & (multipleOfFive== 'True'):
+        result += 'Buzz'
+    if (multipleOfY(i,7)) & (multipleOfSeven== 'True'):
+        result += 'Bang'
+
+    if (multipleOfY(i,11)) & (multipleOfEleven== 'True'):
+        if result != 'Fezz':
+            result = ''
+        result += 'Bong'
+
+    if (multipleOfY(i,17)) & (multipleOfSeventeen== 'True'):
+        result = reverse(result)
+
+    if result == '':
+        return i
+    else:
+        return result
+    
 def printUpToNum(x,multipleOfThree, multipleOfFive,multipleOfSeven,multipleOfEleven,multipleOfThirteen,multipleOfSeventeen):
     for i in range(1,x):
-        result = ''
-        if multipleOfY(i,3) & (multipleOfThree == 'True'):
-            result += 'Fizz'
-        if multipleOfY(i,13) & (multipleOfThirteen== 'True'):
-            result += 'Fezz'
-        if (multipleOfY(i,5)) & (multipleOfFive== 'True'):
-            result += 'Buzz'
-        if (multipleOfY(i,7)) & (multipleOfSeven== 'True'):
-            result += 'Bang'
-
-        if (multipleOfY(i,11)) & (multipleOfEleven== 'True'):
-            if result != 'Fezz':
-                result = ''
-            result += 'Bong'
-
-        if (multipleOfY(i,17)) & (multipleOfSeventeen== 'True'):
-            result = reverse(result)
-
-        if result == '':
-            print(i)
-        else:
-            print(result)
+        result = processNumber(i,multipleOfThree, multipleOfFive,multipleOfSeven,multipleOfEleven,multipleOfThirteen,multipleOfSeventeen)
+        print(result)
 
 integer = input('What number do you want to print up to?')
 
